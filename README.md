@@ -8,8 +8,6 @@
 
 This project was forked from [picorv32-rt](https://github.com/ilya-epifanov/picorv32-rt).
 
-## [Documentation](https://docs.rs/crate/picorv32-rt)
-
 ## License
 
 Copyright 2018 [RISCV team][team]
