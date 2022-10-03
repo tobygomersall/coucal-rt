@@ -1,8 +1,8 @@
 [package]
-name = "picorv32-rt"
+name = "coucal-rt"
 version = "0.5.4"
-repository = "https://github.com/ilya-epifanov/picorv32-rt"
-authors = ["Ilya Epifanov <elijah.epifanov@gmail.com>", "The RISC-V Team <risc-v@teams.rust-embedded.org>"]
+repository = "https://github.com/tobygomersall/coucal-rt"
+authors = ["Toby Gomersall <toby.gomersall@smartacoustics.co.uk>"]
 categories = ["embedded", "no-std"]
 description = "Minimal runtime / startup for PicoRV32 RISC-V CPU"
 keywords = ["riscv", "runtime", "startup"]
@@ -11,13 +11,12 @@ edition = "2018"
 
 [dependencies]
 r0 = "0.2.2"
-picorv32 = { git = "https://github.com/tobygomersall/picorv32-rs.git" }
+coucal-rs = { git = "https://github.com/tobygomersall/coucal-rs.git" }
 picorv32-rt-macros = { path = "macros", version = "0.1.5" }
 
 [features]
 default = ["compressed-isa"]
-inline-asm = [] # No longer used but left for backwards compatibility
-const-fn = ["picorv32/const-fn"]
+const-fn = ["coucal-rs/const-fn"]
 compressed-isa = []
 interrupts = []
 interrupts-qregs = ["interrupts"]
