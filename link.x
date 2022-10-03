@@ -1,7 +1,8 @@
 /* NOTE: Adapted from cortex-m/link.x */
 INCLUDE memory.x
 
-PROVIDE(_stack_start = ORIGIN(RAM) + LENGTH(RAM));
+PROVIDE(_stack_start = STACK_START_ADDRESS);
+PROVIDE(_start_trap_offset = PROGRAM_INTERRUPT_ADDRESS);
 
 PROVIDE(trap_handler = default_trap_handler);
 
@@ -12,14 +13,14 @@ PROVIDE(__pre_init = default_pre_init);
 
 SECTIONS
 {
-  PROVIDE(_stext = ORIGIN(FLASH));
+  PROVIDE(_stext = PROGRAM_RESET_ADDRESS);
 
   .text ALIGN(_stext,4) :
   {
     /* Put reset handler first in .text section so it ends up as the entry */
     /* point of the program. */
     KEEP(*(.initjmp));
-    . = ALIGN(0x10);
+    . = ALIGN(_start_trap_offset);
     KEEP(*(.trap));
     KEEP(*(.init));
     KEEP(*(.init.rust));
