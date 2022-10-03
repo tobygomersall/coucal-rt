@@ -2,11 +2,11 @@
 [![crates.io](https://img.shields.io/crates/v/picorv32-rt.svg)](https://crates.io/crates/picorv32-rt)
 [![Build Status](https://travis-ci.org/ilya-epifanov/picorv32-rt.svg?branch=master)](https://travis-ci.org/ilya-epifanov/picorv32-rt)
 
-# `picorv32-rt`
+# `coucal-rt`
 
 > (Very) minimal runtime / startup for PicoRV32 RISCV CPU.
 
-This project is developed and maintained by the [RISCV team][team].
+This project was forked from [picorv32-rt](https://github.com/ilya-epifanov/picorv32-rt).
 
 ## [Documentation](https://docs.rs/crate/picorv32-rt)
 
@@ -25,12 +25,3 @@ INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
 OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
 TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
 THIS SOFTWARE.
-
-## Code of Conduct
-
-Contribution to this crate is organized under the terms of the [Rust Code of
-Conduct][CoC], the maintainer of this crate, the [RISCV team][team], promises
-to intervene to uphold that code of conduct.
-
-[CoC]: CODE_OF_CONDUCT.md
-[team]: https://github.com/rust-embedded/wg#the-riscv-team
