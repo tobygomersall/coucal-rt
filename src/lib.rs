@@ -47,7 +47,7 @@
 //!
 //! extern crate panic_halt;
 //!
-//! use picorv32::entry;
+//! use coucal_rs::entry;
 //!
 //! // use `main` as the entry point of this application
 //! // `main` is not allowed to return
@@ -203,7 +203,7 @@ extern crate r0;
 use core::fmt;
 use core::ptr::NonNull;
 pub use macros::{entry, pre_init};
-use picorv32;
+use coucal_rs;
 
 /// Provides the assembly expected by the linker script (link.x).
 pub mod asm;
@@ -246,7 +246,7 @@ pub unsafe extern "C" fn start_rust() -> ! {
     r0::init_data(&mut _sdata, &mut _edata, &_sidata);
 
     #[cfg(feature = "interrupts")]
-    picorv32::interrupt::enable();
+    coucal_rs::interrupt::enable();
 
     main();
 }
@@ -282,7 +282,7 @@ impl PicoRV32StoredRegisters {
     #[inline]
     #[cfg(feature = "interrupts-qregs")]
     pub fn x1(&self) -> u32 {
-        unsafe { picorv32::asm::getq2() }
+        unsafe { coucal_rs::asm::getq2() }
     }
 
     /// `x1`/`ra` (return address, saved by caller)
@@ -296,7 +296,7 @@ impl PicoRV32StoredRegisters {
     #[inline]
     #[cfg(feature = "interrupts-qregs")]
     pub fn x2(&self) -> u32 {
-        unsafe { picorv32::asm::getq3() }
+        unsafe { coucal_rs::asm::getq3() }
     }
 
     /// `x2`/`sp` (stack pointer, saved by callee)
@@ -605,5 +605,5 @@ macro_rules! picorv32_interrupts {
 
 /// Sleep until an interrupt is received
 pub fn wfi() {
-    let _irqs = unsafe { picorv32::asm::waitirq() };
+    let _irqs = unsafe { coucal_rs::asm::waitirq() };
 }
