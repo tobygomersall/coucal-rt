@@ -26,7 +26,7 @@
 //! $ # add this crate as a dependency
 //! $ edit Cargo.toml && cat $_
 //! [dependencies]
-//! picorv32-rt = "0.4.0"
+//! coucal-rt = "0.4.0"
 //! panic-halt = "0.2.0"
 //!
 //! $ # memory layout of the device
@@ -552,27 +552,27 @@ pub unsafe fn default_pre_init() {}
 /// use core::sync::atomic;
 /// use core::sync::atomic::Ordering;
 ///
-/// pub fn timer(_regs: &picorv32_rt::PicoRV32StoredRegisters) {
+/// pub fn timer(_regs: &coucal_rt::PicoRV32StoredRegisters) {
 ///     // ...
 /// }
 ///
-/// pub fn illegal_instruction(_regs: &picorv32_rt::PicoRV32StoredRegisters) {
+/// pub fn illegal_instruction(_regs: &coucal_rt::PicoRV32StoredRegisters) {
 ///     loop {
 ///         atomic::compiler_fence(Ordering::SeqCst);
 ///     }
 /// }
 ///
-/// pub fn bus_error(_regs: &picorv32_rt::PicoRV32StoredRegisters) {
+/// pub fn bus_error(_regs: &coucal_rt::PicoRV32StoredRegisters) {
 ///     loop {
 ///         atomic::compiler_fence(Ordering::SeqCst);
 ///     }
 /// }
 ///
-/// pub fn irq5(_regs: &picorv32_rt::PicoRV32StoredRegisters) {
+/// pub fn irq5(_regs: &coucal_rt::PicoRV32StoredRegisters) {
 ///     // ...
 /// }
 ///
-/// pub fn irq6(_regs: &picorv32_rt::PicoRV32StoredRegisters) {
+/// pub fn irq6(_regs: &coucal_rt::PicoRV32StoredRegisters) {
 ///     // ...
 /// }
 ///
@@ -594,7 +594,7 @@ macro_rules! picorv32_interrupts {
     };
     ( $( $irq:literal : $handler:ident ),* ) => {
         #[no_mangle]
-        pub extern "C" fn trap_handler(regs: *const picorv32_rt::PicoRV32StoredRegisters, pending_irqs: u32) {
+        pub extern "C" fn trap_handler(regs: *const coucal_rt::PicoRV32StoredRegisters, pending_irqs: u32) {
             let regs = unsafe { regs.as_ref().unwrap() };
             $(
                 picorv32_interrupts!(@interrupt($irq, pending_irqs, regs, $handler));

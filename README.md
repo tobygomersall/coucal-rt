@@ -1,7 +1,3 @@
-[![crates.io](https://img.shields.io/crates/d/picorv32-rt.svg)](https://crates.io/crates/picorv32-rt)
-[![crates.io](https://img.shields.io/crates/v/picorv32-rt.svg)](https://crates.io/crates/picorv32-rt)
-[![Build Status](https://travis-ci.org/ilya-epifanov/picorv32-rt.svg?branch=master)](https://travis-ci.org/ilya-epifanov/picorv32-rt)
-
 # `coucal-rt`
 
 > (Very) minimal runtime / startup for PicoRV32 RISCV CPU.

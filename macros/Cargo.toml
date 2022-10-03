@@ -9,7 +9,7 @@ documentation = "https://docs.rs/riscv-minimal-rt"
 keywords = ["riscv", "runtime", "startup"]
 license = "MIT OR Apache-2.0"
 name = "picorv32-rt-macros"
-repository = "https://github.com/ilya-epifanov/picorv32-rt"
+repository = "https://github.com/tobygomersall/coucal-rt"
 version = "0.1.5"
 
 [lib]
