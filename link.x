@@ -1,7 +1,7 @@
 /* NOTE: Adapted from cortex-m/link.x */
 INCLUDE memory.x
 
-PROVIDE(_stack_address = STACK_ADDRESS);
+PROVIDE(_stack_start = STACK_ADDRESS);
 PROVIDE(_start_trap_offset = PROGRAM_INTERRUPT_ADDRESS);
 
 PROVIDE(trap_handler = default_trap_handler);
@@ -68,7 +68,7 @@ SECTIONS
   .stack (NOLOAD) :
   {
     _estack = .;
-    . = _stack_address;
+    . = _stack_start;
     _sstack = .;
   } > RAM
 
